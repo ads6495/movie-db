@@ -23,27 +23,30 @@ class MovieApiGrab extends Component {
 
   render() {
     return (
-      <main>
+      <main id="bg">
         <section className="Header-section">
           <h1>Hello, World!</h1>
         </section>
-        <section className="main-section">
-          <ul>
-            {this.state.searchResults.map(result => {
-              return (
-                <row className="container">
-                  <li key={result.id}>
-                    <img src={`${this.state.imgUrl}${result['poster_path']}`} />
-                    <h3>{result.title}</h3>
-                    <p>Overall rating: {result.vote_average}</p>
+        <ul style={{ width: "50%" }}>
+          {this.state.searchResults.map(result => {
+            return (
+              <li key={result.id}>
+                <div className="main-section">
+                  <img src={`${this.state.imgUrl}${result['poster_path']}`} />
+                  <div className="inner-div-flex">
+
+                    <h3>{result.title} <span>Overall rating: {result.vote_average}</span></h3>
                     <p>{result.overview}</p>
-                  </li>
-                </row>
-              )
-            })}
-          </ul>
-        </section>
-      </main>
+                  </div>
+                </div>
+              </li>
+
+
+
+            )
+          })}
+        </ul>
+      </main >
     )
   }
 }
